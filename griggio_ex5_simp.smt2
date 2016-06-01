@@ -4,10 +4,12 @@
 (declare-const y7 (_ BitVec 8))
 (compute-interpolant 
         ; A
-        (and (bvule (_ bv2 8) (bvmul y2 (_ bv2 8)))
+        (and (not (bvule y2 y3))
         )
         ; B
-        (and (not (bvule (_ bv2 8) (bvmul y2 (_ bv2 8))))
+        (and (bvule (bvadd y2 (_ bv1 8)) y3)
+             ;(= y7 (_ bv3 8))             
+             (= (_ bv3 8) (bvadd y2 (_ bv1 8)))
         )
         :use-bv2lia
 )
